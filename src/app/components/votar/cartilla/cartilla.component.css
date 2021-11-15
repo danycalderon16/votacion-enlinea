@@ -1,0 +1,65 @@
+.titulo{
+    display: flex;
+    justify-content: space-between;
+}
+.btn{
+    height: 40px;
+    min-width: 100px;
+    background-color: gray;
+    color: white;
+}
+.boleta{
+    margin-top: 1rem;
+    padding: 1rem;
+    border: 1px solid gray;
+    border-radius: 4px; 
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+.grid-cartilla{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;   
+
+}
+.partido{
+    min-width: 300px;
+    display: flex;
+    border: 1px solid gray;
+    border-radius: 5px;
+    align-items: center;
+}
+.partido img {
+    max-width: 180px;
+    align-items: center;
+    margin-left: 1rem;
+}
+.partido .partido-img{
+    flex-grow: 1;
+}
+.partido .partido-datos{
+    flex-grow: 4;
+    margin: 1rem;
+}
+.btn-votar {
+    width: 100%;
+    background: 0 0;
+    border: 1px solid green;
+    border-radius: 3px;
+    color: #111;
+    line-height: 1;
+    padding: 10px 20px 8px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;  
+}
+.btn-votar:hover{
+    box-shadow: 0px 0px 8px 1px rgba(113,113,113,0.53);
+    -webkit-box-shadow: 0px 0px 8px 1px rgba(113,113,113,0.53);
+    -moz-box-shadow: 0px 0px 8px 1px rgba(113,113,113,0.53);
+}
+.icon{
+    margin-right: 1rem;
+}

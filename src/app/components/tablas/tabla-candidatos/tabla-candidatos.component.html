@@ -1,0 +1,45 @@
+<p>Lista de cantidatos</p>
+<hr>
+
+<table class="table mt-3 animated fadeIn faster animated fadeIn faster">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Puesto</th>
+            <th scope="col">Partido</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let cdt of candidatos; let i = index;">
+            <th scope="row">{{i + 1}}</th>
+            <td>{{cdt.nombre}}</td>
+            <td>{{cdt.puesto}}</td>
+            <td>{{cdt.partido}} <img src={{cdt.imagenPartido}} alt=""></td>
+            <td class="celda-accion">
+                <button type="button" class="btn btn-warning"><i class="fas fa-edit"></i></button>
+                <button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
+            </td>
+        </tr>
+
+    </tbody>
+</table>
+<div *ngIf="!cargando && candidatos.length === 0" 
+class="alert alert-warning text-center mt-3 animated fadeIn faster">
+    <h4 class="alert-heading">No hay registros</h4>
+    <p>
+        <i class="fa fa-exclamation fa-2x"></i>
+    </p>
+</div>
+
+<div *ngIf="cargando"
+ class="alert alert-info text-center mt-3 animated fadeIn faster">
+    <h4 class="alert-heading">Cargando</h4>
+    <p>
+        <i class="fa fa-sync-alt fa-spin fa-2x"></i>
+    </p>
+    <p class="mb-0">
+        Espere por favor
+    </p>
+</div>

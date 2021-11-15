@@ -1,0 +1,10 @@
+header{
+    border-bottom: 1px solid black;
+    padding: 2rem;
+    text-align: center;
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(94,94,117,1) 42%, rgba(142,141,141,1) 100%);
+}
+header h1 a {
+    color:white;
+}

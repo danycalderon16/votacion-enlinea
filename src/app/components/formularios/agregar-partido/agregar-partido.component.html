@@ -1,0 +1,32 @@
+<p>Agregar nuevo partido</p>
+<div class="row animated fadeIn faster">
+    <div class="col">
+        <form (ngSubmit)="guardar(f)" #f="ngForm">
+            <div class="row g-2">
+                <div class="col-md-6">
+                    <label  class="form-label">Firebase ID</label>
+                    <input type="text" required class="form-control" placeholder="Firebase ID" name="id" disabled="disabled"
+                    [(ngModel)]="partido.id">
+                    <small class="form-text text-muted fs-6 mt-1">Este campo es autogenerado</small>
+                </div>
+                <div class="col-md-6">
+                    <label for="name" class="form-label">Nombre</label>
+                    <input type="text" class="form-control" id="name" name="nombre" required
+                    [(ngModel)]="partido.nombre">
+                </div>
+                <div class="col-md-12">
+                    <label for="name" class="form-label">Imagen</label>
+                    <input type="text" class="form-control" id="imimageng" name="imagen" required
+                    [(ngModel)]="partido.imagen">
+                </div>
+            </div>
+            <hr>
+            <div class="form-group text-center mb-4">
+                <button type="submit" class="btn btn-primary w-100">
+                    <i class="fa fa-save"></i>
+                    Guardar
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

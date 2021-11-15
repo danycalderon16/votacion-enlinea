@@ -1,0 +1,19 @@
+<app-nav-menu></app-nav-menu>
+<table class="tbl-propuestas">
+    <section>
+        <h2>Bienvenido Fulatino de tal</h2>
+        <div class="partido" *ngFor="let candidato of candidatos">
+            <div class="partido-img">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a2/Gray-Candidatura_independiente.svg"
+                    alt="">
+            </div>
+            <div class="partido-datos">
+                <p>{{candidato.nombre}}</p>
+                <p>{{candidato.propuestas}}</p>
+                <p>{{candidato.educacion}}</p>
+                <p>{{candidato.puesto}}</p>
+                <p><img src={{candidato.imagenPartido}} alt=""> </p>
+            </div>
+        </div>
+
+    </section>

@@ -1,0 +1,28 @@
+<section class="container">
+    <div class="titulo">
+        <h2>Bienvenido Fulatino de tal</h2>
+        <button routerLink="/puestos" class="btn">
+            <i class="fas fa-long-arrow-alt-left .icon"></i>
+            Regresar
+        </button>
+    </div>
+
+    <div class="boleta">
+        <p class="text-center">Boleta electoral para el puesto de <strong>{{this.puesto}}</strong></p>
+        <div class="grid-cartilla">
+            <div class="partido" *ngFor="let candidato of candidatos">
+                <div class="partido-img">
+                    <img src={{candidato.imagenPartido}} alt="">
+                </div>
+                <div class="partido-datos">
+                    <p>{{candidato.nombre}} {{candidato.apellido}}</p>
+                    <p>Candidato a {{this.puesto}}</p>
+                    <p>{{candidato.propuestas}}</p>
+                    <button class="btn-votar" (click)="votar()">
+                        Votar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

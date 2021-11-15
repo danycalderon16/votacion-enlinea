@@ -1,0 +1,35 @@
+.tbl-votante{    
+    width: 100%;
+    border-spacing: 15px;
+}
+.tbl-votante th,
+.tbl-votante td,
+.tbl-votante tr
+{
+    border: 1px solid black;
+}
+.tbl-votante td {
+    border-radius: 20px;
+}
+.tbl-votante td:hover {
+    box-shadow: 0px 0px 18px 1px rgba(0,0,0,0.27);
+    -webkit-box-shadow: 0px 0px 18px 1px rgba(0,0,0,0.27);
+    -moz-box-shadow: 0px 0px 18px 1px rgba(0,0,0,0.27);
+}
+.votante{
+    display: flex;
+}
+.votante img {
+    max-width: 200px;
+    border-radius: 50%;
+ 
+}
+.votante .votante-img{
+    width: 100px;
+    height: 100px;
+   flex-grow: 1;
+}
+.votante .votante-datos{
+    flex-grow: 4;
+    margin: 1rem;
+}

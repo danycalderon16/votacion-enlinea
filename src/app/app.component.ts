@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ResultadoVotosService } from './services/resultado-votos.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'votacion-enlinea';
+    title = 'votacion-enlinea'; 
 }
+  

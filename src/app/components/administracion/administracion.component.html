@@ -1,0 +1,26 @@
+<div class="container">
+    <h2 class="fs-1">Panel de Administración</h2>
+
+    <hr>
+
+    <div class="cabecera">
+        <span class="f2-2 fw-bold">Partidos</span>
+        <button (click)="changeViewPartidos()" class="btn btn-primary"><i [ngClass]="{'far fa-eye': showPartidos === false, 'fa fa-plus' : showPartidos === true }" ></i> {{ showPartidos ? 'Agregar' : 'Mostrar' }}</button>
+    </div>
+    <div *ngIf="showPartidos">
+        <app-tabla-partidos></app-tabla-partidos>
+    </div>
+    <ng-template [ngIf]="!showPartidos"><div><app-agregar-partido></app-agregar-partido></div></ng-template>
+   
+    <hr>
+    
+    <div class="cabecera">
+        <span class="f2-2 fw-bold">Candidatos</span>
+        <button (click)="changeViewCandidatos()" class="btn btn-primary"><i [ngClass]="{'far fa-eye': showCandidatos === false, 'fa fa-plus' : showCandidatos === true }" ></i> {{ showCandidatos ? 'Agregar' : 'Mostrar' }}</button>
+    </div>
+    <div *ngIf="showCandidatos">
+        <app-tabla-candidatos></app-tabla-candidatos>
+    </div>
+    <ng-template [ngIf]="!showCandidatos"><div><app-agregar-candidato></app-agregar-candidato></div></ng-template>
+
+</div>

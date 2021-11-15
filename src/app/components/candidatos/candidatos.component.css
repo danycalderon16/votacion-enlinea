@@ -1,0 +1,35 @@
+.tbl-propuestas{    
+    width: 100%;
+    border-spacing: 15px;
+}
+.tbl-propuestas th,
+.tbl-propuestas td,
+.tbl-propuestas tr
+{
+    border: 1px solid black;
+}
+.tbl-propuestas td {
+    border-radius: 20px;
+}
+.tbl-propuestas td:hover {
+    box-shadow: 0px 0px 18px 1px rgba(0,0,0,0.27);
+    -webkit-box-shadow: 0px 0px 18px 1px rgba(0,0,0,0.27);
+    -moz-box-shadow: 0px 0px 18px 1px rgba(0,0,0,0.27);
+}
+.partido{
+    display: flex;
+    border: 1px solid gray;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+}
+.partido img {
+    max-width: 200px;
+}
+.partido .partido-img{
+    flex-grow: 1;
+}
+.partido .partido-datos{
+    flex-grow: 4;
+    margin: 1rem;
+}
+

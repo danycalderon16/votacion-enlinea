@@ -1,0 +1,68 @@
+<p>Agregar nuevo candidato</p>
+
+<div class="row animated fadeIn faster">
+  <div class="col">
+
+    <form (ngSubmit)="guardar(f)" #f="ngForm">
+
+      <div class="form-group">
+        <label>Firebase ID</label>
+        <input type="text" required class="form-control" placeholder="Firebase ID" [(ngModel)]="candidato.id" name="id"
+          disabled="disabled">
+        <small class="form-text text-muted">Este campo es autogenerado</small>
+      </div>
+
+
+      <form class="row g-3">
+        <div class="col-md-6">
+          <label for="names" class="form-label">Nombres</label>
+          <input type="text" class="form-control" id="names" name="nombre" [(ngModel)]="candidato.nombre" required>
+        </div>
+        <div class="col-md-6">
+          <label for="lasname" class="form-label">Apellido</label>
+          <input type="text" class="form-control" id="lastname" [(ngModel)]="candidato.apellido" name="apellido" required>
+        </div>
+        <div class="col-md-9">
+          <label for="education" class="form-label">Educación</label>
+          <input type="text" class="form-control" id="education" [(ngModel)]="candidato.educacion" name="educacion" required>
+        </div>
+        <div class="col-md-3">
+          <label for="age" class="form-label">Edad</label>
+          <input type="number" class="form-control" id="age" [(ngModel)]="candidato.edad" name="edad" required>
+        </div>
+        <div class="col-md-6">
+          <label for="inputState" class="form-label">Partido</label>
+          <select id="inputState" class="form-select" [(ngModel)]="candidato.partido" name="partido" required>
+            <option selected>Eliga un partido...</option>
+            <option *ngFor="let prt of partidos">{{prt.nombre}}</option>
+          </select>
+        </div>
+        <div class="col-md-6">
+          <label for="inputState" class="form-label">Puesto</label>
+          <select id="inputState" class="form-select" [(ngModel)]="candidato.puesto" name="puesto" required>
+            <option selected>Eliga un puesto...</option>
+            <option *ngFor="let puesto of puestos">{{puesto.nombre}}</option>
+          </select>
+        </div>
+      </form>
+
+      <div class="mb-3">
+        <label for="propuestas" class="form-label mt-2">Propuestas</label>
+        <textarea class="form-control" id="propuestas" rows="3" [(ngModel)]="candidato.propuestas" required
+          name="propuestas"></textarea>
+      </div>
+
+      <hr>
+      <div class="form-group text-center mb-4">
+        <button type="submit" class="btn btn-primary w-100">
+          <i class="fa fa-save"></i>
+          Guardar
+        </button>
+      </div>
+
+
+    </form>
+
+
+  </div>
+</div>
