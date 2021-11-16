@@ -1,3 +1,10 @@
 .chart{
     border: 1px solid gray;
 }
+.card{
+    margin-top: 1rem;
+    padding: 1rem;
+    border: 1px solid gray;
+    border-radius: 4px; 
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}

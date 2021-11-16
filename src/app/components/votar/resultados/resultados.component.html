@@ -1,21 +1,28 @@
 <app-nav-menu></app-nav-menu>
-<div class="container ">
-  <p class="text-center mt-5">Resultado de votos para Gobernador</p>
-  <div class="chart">
-    <ngx-charts-advanced-pie-chart [view]="view" scheme="cool" [results]="single" [gradient]="gradient"
-      (select)="onSelect($event)" (activate)="onActivate($event)" (deactivate)="onDeactivate($event)">
-    </ngx-charts-advanced-pie-chart>
+<div class="container mb-5">
+  <div class="card">
+
+    <p class="text-center mt-5">Resultado de votos para Gobernador</p>
+    <div style="display: block;">
+      <canvas baseChart [data]="polarAreaChartDataGob" [labels]="polarAreaChartLabelsGob" [legend]="polarAreaLegend"
+        [options]="options" [colors]="colores" [chartType]="polarAreaChartType">
+      </canvas>
+    </div>
   </div>
-  <p class="text-center mt-5">Resultado de votos para Senador</p>
-  <div class="chart">
-    <ngx-charts-advanced-pie-chart [view]="view" scheme="horizon" [results]="single" [gradient]="gradient"
-      (select)="onSelect($event)" (activate)="onActivate($event)" (deactivate)="onDeactivate($event)">
-    </ngx-charts-advanced-pie-chart>
+  <div class="card">
+    <p class="text-center mt-5">Resultado de votos para Senador</p>
+    <div style="display: block">
+      <canvas baseChart [data]="polarAreaChartDataSen" [labels]="polarAreaChartLabelsSen" [legend]="polarAreaLegend"
+        [options]="options" [colors]="colores" [chartType]="polarAreaChartType">
+      </canvas>
+    </div>
   </div>
-  <p class="text-center mt-5">Resultado de votos para Presidente</p>
-  <div class="chart">
-    <ngx-charts-advanced-pie-chart [view]="view" scheme="nightLights" [results]="single" [gradient]="gradient"
-      (select)="onSelect($event)" (activate)="onActivate($event)" (deactivate)="onDeactivate($event)">
-    </ngx-charts-advanced-pie-chart>
+  <div class="card">
+    <p class="text-center mt-5">Resultado de votos para Presidente</p>
+    <div style="display: block;">
+      <canvas baseChart [data]="polarAreaChartDataPre" [labels]="polarAreaChartLabelsPre" [legend]="polarAreaLegend"
+        [options]="options" [colors]="colores" [chartType]="polarAreaChartType">
+      </canvas>
+    </div>
   </div>
 </div>

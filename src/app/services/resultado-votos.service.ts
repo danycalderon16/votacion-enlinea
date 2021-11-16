@@ -2,13 +2,14 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Votante } from '../models/votante.model';
+import { CandidatosService } from './candidatos.service';
 
-interface Votos {
-  candidato: string;
-  // puesto:string,
-  //partido:string,
-  votos: number;
+interface DataValues {
+  name: string;
+  value: number;
 }
+
+
 
 
 @Injectable({
@@ -16,43 +17,63 @@ interface Votos {
 })
 export class ResultadoVotosService {
 
+  dataGob: DataValues[] = []
+  dataSen: DataValues[] = []
+  dataPre: DataValues[] = []
+
   private url = 'https://votacion-en-linea-default-rtdb.firebaseio.com';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,
+    private candidatosService: CandidatosService) { }
 
-  votarGobernador(votante: Votante) {
-    console.log(votante);
-    return this.http.post(`${this.url}/votos/gobernador.json`, votante)
-      .subscribe(response => {console.log(response);})
+  votarGobernador(votante: Votante, candidato: string) {
+    return this.http.post(`${this.url}/votos/gobernador/${candidato}.json`, votante)
+      .subscribe(response => { console.log(response); })
   }
 
-  votarSenador(votante: Votante) {
-    console.log(votante);
-    return this.http.post(`${this.url}/votos/senador.json`, votante)
+  getResultadosGober() {
+    return this.http.get(`${this.url}/votos/gobernador.json`)
       .pipe(
-        map((resp: any) => {
-          console.log(resp)
-          return votante;
-        })
-      );
+        map(res => {
+          console.log(res)
+        }
+        ));
   }
 
-  votarPresidente(votante: Votante) {
-    console.log(votante);
-    return this.http.post(`${this.url}/votos/presidente.json`, votante)
-      .pipe(
-        map((resp: any) => {
-          console.log(resp)
-          return votante;
-        })
-      );
+  votarSenador(votante: Votante, candidato: string) {
+    return this.http.post(`${this.url}/votos/senador/${candidato}.json`, votante)
+      .subscribe(response => { console.log(response); })
   }
 
+  votarPresidente(votante: Votante, candidato: string) {
+    return this.http.post(`${this.url}/votos/presidente/${candidato}.json`, votante)
+      .subscribe(response => { console.log(response); })
+  }
 
+  createDataGober() {
+    this.candidatosService.getCandidatos().subscribe(res => {
+      res.forEach(element => {
+        if (element.puesto === "Gobernador") {
+          let data = {
+            name: element.nombre + " " + element.apellido,
+            value: Math.random() * 1000
+          }
+          this.dataGob.push(data);
+          console.log(this.dataGob)
+          console.log("hola")
+        }
+      })
+    })
+    return this.dataGob;
+  }
+
+  get sendData() {
+    return this.data;
+  }
   private data = [
     {
       "name": "Germany",
-      "value": 2
+      "value": 2.2222222222
     },
     {
       "name": "USA",
@@ -68,7 +89,4 @@ export class ResultadoVotosService {
     }
   ];
 
-  get getCountsVotos() {
-    return this.data;
-  }
 }

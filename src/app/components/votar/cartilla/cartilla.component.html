@@ -18,7 +18,7 @@
                     <p>{{candidato.nombre}} {{candidato.apellido}}</p>
                     <p>Candidato a {{this.puesto}}</p>
                     <p>{{candidato.propuestas}}</p>
-                    <button class="btn-votar" (click)="votar()">
+                    <button class="btn-votar" (click)="votar(candidato.nombre)">
                         Votar
                     </button>
                 </div>

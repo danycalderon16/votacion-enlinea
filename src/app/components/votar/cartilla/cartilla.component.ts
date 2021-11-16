@@ -47,18 +47,15 @@ export class CartillaComponent implements OnInit {
       });
   }
 
-  votar() {
+  votar(candidato:any) {
     if (this.puesto === "Gobernador") {
-      this.resultados.votarGobernador(this.votante)
-      console.log(this.puesto)
+      this.resultados.votarGobernador(this.votante,candidato)
     }
     if (this.puesto === "Presidente") {
-      this.resultados.votarSenador(this.votante)
-      console.log(this.puesto)
+      this.resultados.votarSenador(this.votante,candidato)
     }
     if (this.puesto === "Senador") {
-      this.resultados.votarPresidente(this.votante)
-      console.log(this.puesto)
+      this.resultados.votarPresidente(this.votante,candidato)
     }
   }
 
