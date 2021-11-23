@@ -16,7 +16,8 @@ export class TablaPartidosComponent implements OnInit {
 
   ngOnInit(): void {
     this.partidosService.getPartidos()
-      .subscribe(res => this.partidos = res);
+      .subscribe(res => {this.partidos = res
+      console.log(res)});
   }
 
 }

@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "votacion-en-linea": {
+      "hosting": {
+        "votacion-enlinea": [
+          "votacion-en-linea"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "votacion-en-linea"
+  }
+}

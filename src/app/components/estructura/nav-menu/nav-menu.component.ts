@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { getAuth } from '@firebase/auth';
 
 @Component({
   selector: 'app-nav-menu',
@@ -27,6 +28,9 @@ export class NavMenuComponent implements OnInit {
     this.router.navigate(['candidatos']);
   }
 
+  goToPerfil(){
+    this.router.navigate(['perfil',getAuth().currentUser?.uid]);
+  }
   goToVotar(){
     this.router.navigate(['puestos']);
   }

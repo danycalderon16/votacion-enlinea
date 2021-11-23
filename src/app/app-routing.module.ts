@@ -9,12 +9,14 @@ import { PerfilComponent } from './components/perfil/perfil.component';
 import { PuestosComponent } from './components/votar/puestos/puestos.component';
 import { ResultadosComponent } from './components/votar/resultados/resultados.component';
 
+import {AuthGuard} from './guard/auth.guard'
+
 const routes: Routes = [
   {path:'',component:LoginComponent},
   {path:'puestos',component:PuestosComponent},
-  {path:'perfil',component:PerfilComponent},
+  {path:'perfil/:id',component:PerfilComponent},
   {path:'casillas',component:CasillasFisicasComponent},
-  {path:'candidatos',component:CandidatosComponent},
+  {path:'candidatos/:puesto',component:CandidatosComponent},
   {path:'cartilla/:puesto',component:CartillaComponent},
   {path:'admon',component:AdministracionComponent},
   {path:'resultados',component:ResultadosComponent},

@@ -26,7 +26,7 @@ export class CartillaComponent implements OnInit {
     estado: "Nayarit",
     municipio: "Tepic",
     seccion: "004",
-    claveElector: "CAVD991116"
+    clave: "CAVD991116"
   };
 
 

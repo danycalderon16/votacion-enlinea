@@ -4,7 +4,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxChartsModule} from '@swimlane/ngx-charts'
 import { ChartsModule } from 'ng2-charts';
 
-
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule} from '@angular/forms'
@@ -26,6 +25,10 @@ import { AgregarPartidoComponent } from './components/formularios/agregar-partid
 import { TablaPartidosComponent } from './components/tablas/tabla-partidos/tabla-partidos.component';
 import { VentanaVotarComponent } from './components/votar/ventana-votar/ventana-votar.component';
 import { ResultadosComponent } from './components/votar/resultados/resultados.component';
+import { environment } from '../environments/environment';
+
+import { AngularFireModule} from '@angular/fire/compat'
+import { provideAuth, getAuth } from '@angular/fire/auth';
 
 @NgModule({
   declarations: [
@@ -54,7 +57,11 @@ import { ResultadosComponent } from './components/votar/resultados/resultados.co
     HttpClientModule,
     NgxChartsModule,
     BrowserAnimationsModule,
-    ChartsModule
+    ChartsModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    // provideFirebaseApp(() => initializeApp(environment.firebase)),
+     provideAuth(() => getAuth()),
+    // provideDatabase(() => getDatabase())
   ],
   providers: [],
   bootstrap: [AppComponent]

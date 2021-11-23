@@ -23,21 +23,12 @@ export class PuestosComponent implements OnInit {
 		
 	}
 
-	goToVotarPresidente() {
-		this.presidentes = this.candidatos.filter(
-			candidato => candidato.puesto === 'Presidente');
-		console.log(this.presidentes)
-		this.router.navigate(['/cartilla',"Presidente"])
-	}
-	goToVotarSenador() {
-		this.router.navigate(['/cartilla',"Senador"])
-	}
-	goToVotarGobernador() {
-	    this.router.navigate(['/cartilla',"Gobernador"])
+	verCartilla(puesto:string) {
+		this.router.navigate(['/cartilla',puesto])
 	}
 
-	goToCandidatos() {
-		this.router.navigate(['candidatos'])
+	verCandidatos(puesto:string) {
+		this.router.navigate(['/candidatos', puesto])
 	}
 
 }
