@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Candidato } from 'src/app/models/candidato.model';
 import { CandidatosService } from 'src/app/services/candidatos.service';
-
+import { PerfilComponent } from '../../perfil/perfil.component';
 @Component({
   selector: 'app-ventana-votar',
   templateUrl: './ventana-votar.component.html',
@@ -10,13 +10,14 @@ import { CandidatosService } from 'src/app/services/candidatos.service';
 })
 export class VentanaVotarComponent implements OnInit {
 
-  candidatos: Candidato[] = [];
+  	candidatos: Candidato[] = [];
 	presidentes: Candidato[] = [];
 	senadores: Candidato[] = [];
 	gobernadores: Candidato[] = [];
 
 	constructor(private router: Router,
-		private candidatoService: CandidatosService) { }
+		private candidatoService: CandidatosService,
+		private data: PerfilComponent) { }
 
 	ngOnInit(): void {
 		this.candidatoService.getCandidatos()
@@ -24,6 +25,8 @@ export class VentanaVotarComponent implements OnInit {
 				this.candidatos = resp;
 				console.log(this.candidatos)
 			});
+		console.log(this.data.dataVotante)
+		console.log("hola")
 	}
 
 	goToVotarPresidente() {

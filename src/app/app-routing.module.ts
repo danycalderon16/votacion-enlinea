@@ -10,16 +10,19 @@ import { PuestosComponent } from './components/votar/puestos/puestos.component';
 import { ResultadosComponent } from './components/votar/resultados/resultados.component';
 
 import {AuthGuard} from './guard/auth.guard'
+import { InicioComponent } from './components/estructura/inicio/inicio.component';
 
 const routes: Routes = [
-  {path:'',component:LoginComponent},
-  {path:'puestos',component:PuestosComponent},
-  {path:'perfil/:id',component:PerfilComponent},
-  {path:'casillas',component:CasillasFisicasComponent},
-  {path:'candidatos/:puesto',component:CandidatosComponent},
-  {path:'cartilla/:puesto',component:CartillaComponent},
-  {path:'admon',component:AdministracionComponent},
-  {path:'resultados',component:ResultadosComponent},
+  {path:'',component:InicioComponent,},
+  {path:'login',component:LoginComponent},
+  {path:'puestos',component:PuestosComponent,canActivate:[AuthGuard]},
+  {path:'perfil/:id',component:PerfilComponent,canActivate:[AuthGuard]},
+  {path:'casillas',component:CasillasFisicasComponent,canActivate:[AuthGuard]},
+  {path:'candidatos/:puesto',component:CandidatosComponent,canActivate:[AuthGuard]},
+  {path:'cartilla/:puesto',component:CartillaComponent,canActivate:[AuthGuard]},
+  {path:'admon',component:AdministracionComponent,canActivate:[AuthGuard]},
+  {path:'resultados',component:ResultadosComponent,canActivate:[AuthGuard]},
+  {path:'**',component:InicioComponent},
 ]
 
 @NgModule({

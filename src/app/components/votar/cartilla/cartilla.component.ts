@@ -4,6 +4,9 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { CandidatosService } from 'src/app/services/candidatos.service';
 import { ResultadoVotosService } from 'src/app/services/resultado-votos.service';
 import { Votante } from 'src/app/models/votante.model';
+import { PerfilComponent } from '../../perfil/perfil.component';
+import { DataService } from 'src/app/services/data.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-cartilla',
@@ -17,23 +20,15 @@ export class CartillaComponent implements OnInit {
   candidatos: Candidato[] = [];
   candidatosTemp: Candidato[] = [];
 
-  votante: Votante = {
-    nombre: "Daniel Calderon",
-    fechaNac: "16 nov 1999",
-    domicilio: "Caoba 1121",
-    localidad: "Tepic",
-    curp: "CADV991116HNTLR04",
-    estado: "Nayarit",
-    municipio: "Tepic",
-    seccion: "004",
-    clave: "CAVD991116"
-  };
+  votante: Votante = {};
 
 
   constructor(
     private route: ActivatedRoute,
     private candidatoService: CandidatosService,
-    private resultados: ResultadoVotosService) {
+    private resultados: ResultadoVotosService,
+    private data:DataService,
+    private auth:AuthService) {
   }
 
   ngOnInit(): void {
@@ -44,10 +39,13 @@ export class CartillaComponent implements OnInit {
           if (element.puesto === this.puesto)
             this.candidatos.push(element);
         });
-      });
+       });
+      this.data.getUsuario(this.auth.getCurrentUser()).subscribe(res => this.votante = res)
+      
   }
 
   votar(candidato:any) {
+    console.log(this.votante)
     if (this.puesto === "Gobernador") {
       this.resultados.votarGobernador(this.votante,candidato)
     }

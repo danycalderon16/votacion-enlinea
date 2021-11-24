@@ -14,15 +14,15 @@ import { getAuth } from '@angular/fire/auth';
 export class PerfilComponent implements OnInit {
  
 
-  votante:Votante = {};
+  public dataVotante:Votante = {};
 
   constructor(private data:DataService,
       private auth:AuthService ) { }
 
   ngOnInit(): void {
-    this.data.getCandidatos(getAuth().currentUser?.uid)
+    this.data.getUsuario(getAuth().currentUser?.uid)
       .subscribe(resp=> {
-        this.votante = resp
+        this.dataVotante = resp
       })
   }
 

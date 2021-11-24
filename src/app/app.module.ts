@@ -30,8 +30,13 @@ import { environment } from '../environments/environment';
 import { AngularFireModule} from '@angular/fire/compat'
 import { provideAuth, getAuth } from '@angular/fire/auth';
 
+import {MaterialExampleModule} from '../material.module';
+import {DialogOverviewExampleDialog} from './components/login/login.component';
+import { InicioComponent } from './components/estructura/inicio/inicio.component';
+
 @NgModule({
   declarations: [
+    DialogOverviewExampleDialog,
     AppComponent,
     HeaderComponent,
     LoginComponent,
@@ -49,12 +54,14 @@ import { provideAuth, getAuth } from '@angular/fire/auth';
     TablaPartidosComponent,
     VentanaVotarComponent,
     ResultadosComponent,
+    InicioComponent
   ],
   imports: [
     BrowserModule, 
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    MaterialExampleModule,
     NgxChartsModule,
     BrowserAnimationsModule,
     ChartsModule,
@@ -64,6 +71,6 @@ import { provideAuth, getAuth } from '@angular/fire/auth';
     // provideDatabase(() => getDatabase())
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent, LoginComponent]
 })
 export class AppModule { }

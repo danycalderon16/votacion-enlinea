@@ -9,11 +9,23 @@ import { getAuth } from '@angular/fire/auth';
 })
 export class AuthService {
 
+  public isLogged = false;
+
   constructor(private afauth: AngularFireAuth,
     private router:Router) { }
 
+  logout(){
+    this.afauth.signOut().catch(err =>{
+      console.log("error al salir")
+    })
+    .then(res =>{
+      console.log(res);
+      this.router.navigate(['login']);
+      this.isLogged = false;
+    })
+  }
+
   login(email:string, password:string){
-    this.afauth.signInWithPopup
     this.afauth.signInWithEmailAndPassword(
       email,
       password
@@ -28,7 +40,12 @@ export class AuthService {
     })
     .then(res => {
       this.router.navigate(['perfil',getAuth().currentUser?.uid])
+      this.isLogged = true;
     })
+  }
+
+  loginAdmin(){
+    this.isLogged = true;
   }
 
   getCurrentUser(){

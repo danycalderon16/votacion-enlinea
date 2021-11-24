@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { getAuth } from '@firebase/auth';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-nav-menu',
@@ -10,7 +11,8 @@ import { getAuth } from '@firebase/auth';
 export class NavMenuComponent implements OnInit {
 
   constructor(
-    private router:Router
+    private router:Router,
+    private auth:AuthService
   ) { }
 
   ngOnInit(): void {
@@ -35,7 +37,7 @@ export class NavMenuComponent implements OnInit {
     this.router.navigate(['puestos']);
   }
   logOut(){
-    this.router.navigate(['']);
+    this.auth.logout()
   }
   goToResultados(){
     this.router.navigate(['resultados']);

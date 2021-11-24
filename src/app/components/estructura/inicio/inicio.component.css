@@ -1,0 +1,6 @@
+.inicio{
+    min-height: 70vh;
+}
+.inicio p{
+    cursor: pointer;
+}

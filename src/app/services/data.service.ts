@@ -13,7 +13,7 @@ export class DataService {
   
   constructor( private http:HttpClient) { }
 
-  getCandidatos(uid:any){
+  getUsuario(uid:any){
     return this.http.get( `${this.url}/usuarios/${uid}.json`);
   }
   private crearArreglo(votanteObj: any){
