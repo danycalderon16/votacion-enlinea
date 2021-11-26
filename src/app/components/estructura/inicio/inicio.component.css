@@ -1,6 +1,12 @@
 .inicio{
     min-height: 70vh;
+    display: flex;
+    justify-content: space-evenly;
 }
 .inicio p{
+}
+.card{
     cursor: pointer;
+    min-height: 300px;
+    text-align: center;
 }

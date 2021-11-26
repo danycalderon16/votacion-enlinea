@@ -2,6 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'app-header',
@@ -10,12 +11,16 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private auth:AuthService,private route:Router) { }
+  constructor(private loginServ:LoginService,
+    private authSer:AuthService,
+    private route:Router) { }
 
   ngOnInit(): void {
   }
 
   loged(){
-    console.log(this.auth.isLogged);
+    console.log(this.loginServ.isLogged);
+    console.log(this.authSer.getCurrentUser())
+    this.route.navigate(['inicio']);
   }
 }

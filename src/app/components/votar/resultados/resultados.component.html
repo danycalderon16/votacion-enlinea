@@ -1,7 +1,13 @@
-<app-nav-menu></app-nav-menu>
 <div class="container mb-5">
+  
+  <div class="titulo container to-right">
+    <h2></h2>
+    <button routerLink="/inicio" class="btn">
+        <i class="fas fa-long-arrow-alt-left .icon"></i>
+        Inicio
+    </button>
+  </div>
   <div class="card">
-
     <p class="text-center mt-5">Resultado de votos para Gobernador</p>
     <div style="display: block;">
       <canvas baseChart [data]="polarAreaChartDataGob" [labels]="polarAreaChartLabelsGob" [legend]="polarAreaLegend"

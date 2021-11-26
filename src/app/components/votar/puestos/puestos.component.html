@@ -1,33 +1,42 @@
-<app-nav-menu></app-nav-menu>
-<div class="puestos">
-    <div class="puesto">
-       <img src="https://yt3.ggpht.com/5SOWJtxkwc-1Oq6o8tQWRqH_3PeSryWkhXDbG9M8mkhmtfG6VqhOh2QXFewOwc8XjRKzdS_w0Q=s900-c-k-c0x00ffffff-no-rj" alt="">
-        <p>Senador</p>   
-        <div class="btn-contenedor">
-            <a class="btn-cartilla" (click)="verCartilla('Senador')">
-               Votar
-            </a>    
-            <a class="btn btn-secondary mt-3" (click)="verCandidatos('Senador')">Ver candidatos</a>
-        </div>
+<div class="container">
+    <div class="titulo to-right">
+        <button routerLink="/inicio" class="btn">
+            <i class="fas fa-long-arrow-alt-left .icon"></i>
+            Inicio
+        </button>
     </div>
-    <div class="puesto">
-        <img src="https://gentenayarit.com/wp-content/uploads/2017/11/escudo-nayarit.gif" alt="">
-        <p>Gobernador</p>
-        <div class="btn-contenedor">
-            <a class="btn-cartilla" (click)="verCartilla('Gobernador')">
-               Votar
-            </a>    
-            <a class="btn btn-secondary mt-3" (click)="verCandidatos('Gobernador')">Ver candidatos</a>
+    <div class="puestos">
+        <div class="puesto">
+            <img src="https://yt3.ggpht.com/5SOWJtxkwc-1Oq6o8tQWRqH_3PeSryWkhXDbG9M8mkhmtfG6VqhOh2QXFewOwc8XjRKzdS_w0Q=s900-c-k-c0x00ffffff-no-rj"
+                alt="">
+            <p>Senador</p>
+            <div class="btn-contenedor">
+                <a class="btn-cartilla" (click)="verCartilla('Senador')">
+
+                    Votar
+                </a>
+                <a class="btn btn-secondary mt-3" (click)="verCandidatos('Senador')">Ver candidatos</a>
+            </div>
         </div>
-    </div>
-    <div class="puesto">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Tepic.svg" alt="">
-        <p>Presidente municipal de Tepic</p>
-        <div class="btn-contenedor">
-            <a class="btn-cartilla" (click)="verCartilla('Presidente')">
-               Votar
-            </a>    
-            <a class="btn btn-secondary mt-3" (click)="verCandidatos('Presidente')">Ver candidatos</a>
-        </div> 
+        <div class="puesto">
+            <img src="https://gentenayarit.com/wp-content/uploads/2017/11/escudo-nayarit.gif" alt="">
+            <p>Gobernador</p>
+            <div class="btn-contenedor">
+                <a class="btn-cartilla" (click)="verCartilla('Gobernador')">
+                    Votar
+                </a>
+                <a class="btn btn-secondary mt-3" (click)="verCandidatos('Gobernador')">Ver candidatos</a>
+            </div>
+        </div>
+        <div class="puesto">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Tepic.svg" alt="">
+            <p>Presidente municipal de Tepic</p>
+            <div class="btn-contenedor">
+                <a class="btn-cartilla" (click)="verCartilla('Presidente')">
+                    Votar
+                </a>
+                <a class="btn btn-secondary mt-3" (click)="verCandidatos('Presidente')">Ver candidatos</a>
+            </div>
+        </div>
     </div>
 </div>

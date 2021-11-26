@@ -3,9 +3,10 @@ header{
     padding: 2rem;
     text-align: center;
     background: rgb(255,255,255);
-background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(237,237,237,1) 42%, rgba(255,255,255,1) 100%);box-shadow: 0px 2px 14px 1px rgba(163,163,163,0.88);
+    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(237,237,237,1) 42%, rgba(255,255,255,1) 100%);box-shadow: 0px 2px 14px 1px rgba(163,163,163,0.88);
     -webkit-box-shadow: 0px 2px 14px 1px rgba(163,163,163,0.88);
     -moz-box-shadow: 0px 2px 14px 1px rgba(163,163,163,0.88);
+    cursor: pointer;
 }
 
 header h1 {

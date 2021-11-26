@@ -1,6 +1,10 @@
 .titulo{
     display: flex;
     justify-content: space-between;
+    align-items: center;
+}
+.titulo h2{
+    margin-bottom: 0;
 }
 .btn{
     height: 40px;
@@ -12,20 +16,20 @@
     margin-top: 1rem;
     padding: 1rem;
     border: 1px solid gray;
-    border-radius: 30px; 
+    border-radius: 5px; 
     box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 }
+
 .grid-cartilla{
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1rem;   
-
 }
 .partido{
     min-width: 300px;
     display: flex;
     border: 1px solid gray;
-    border-radius: 5px;
+    border-radius: 15px;
     align-items: center;
 }
 .partido img {
@@ -64,3 +68,10 @@
 .icon{
     margin-right: 1rem;
 }
+@media (max-width: 770px) {
+    .grid-cartilla{
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;   
+    }
+  }

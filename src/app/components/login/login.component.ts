@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, Input} from '@angular/core';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { AuthService } from 'src/app/services/auth.service';
@@ -19,6 +19,7 @@ export interface DialogData {
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  @Input() whereToGo:any
 
   email: string = "diegolainez@ittepic.com"
   password: string = "diegolainez"
@@ -28,7 +29,6 @@ export class LoginComponent implements OnInit {
   constructor(private router: Router,
     private authService: AuthService,
     public dialog: MatDialog
-    //private getAuthFm:AngularFireModule
   ) { }
 
   ngOnInit(): void {

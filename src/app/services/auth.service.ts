@@ -4,14 +4,14 @@ import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import 'firebase/auth'
 import { getAuth } from '@angular/fire/auth';
+import { LoginService } from './login.service';
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  public isLogged = false;
-
   constructor(private afauth: AngularFireAuth,
+    private loginService:LoginService,
     private router:Router) { }
 
   logout(){
@@ -21,7 +21,7 @@ export class AuthService {
     .then(res =>{
       console.log(res);
       this.router.navigate(['login']);
-      this.isLogged = false;
+      this.loginService.isLogged = false;
     })
   }
 
@@ -39,16 +39,33 @@ export class AuthService {
       return;
     })
     .then(res => {
-      this.router.navigate(['perfil',getAuth().currentUser?.uid])
-      this.isLogged = true;
+      console.log(this.loginService.whereToGo)
+      
+      this.redirigir();
+      
+      this.loginService.isLogged = true;
     })
   }
 
+  redirigir(){
+    if(this.loginService.whereToGo==='inicio')
+        this.router.navigate(['perfil',getAuth().currentUser?.uid])
+        if(this.loginService.whereToGo==='perfil')
+          this.router.navigate(['perfil',getAuth().currentUser?.uid])
+      if(this.loginService.whereToGo==='puestos')
+        this.router.navigate(['puestos'])
+      if(this.loginService.whereToGo==='resultados')
+        this.router.navigate(['resultados'])
+      if(this.loginService.whereToGo==='mapa')
+        this.router.navigate(['perfil',getAuth().currentUser?.uid])//cambiar despues
+  }
+
   loginAdmin(){
-    this.isLogged = true;
+    this.loginService.isLogged = true;
   }
 
   getCurrentUser(){
     return getAuth().currentUser?.uid
   }
+  
 }

@@ -14,6 +14,7 @@ import { InicioComponent } from './components/estructura/inicio/inicio.component
 
 const routes: Routes = [
   {path:'',component:InicioComponent,},
+  {path:'inicio',component:InicioComponent,},
   {path:'login',component:LoginComponent},
   {path:'puestos',component:PuestosComponent,canActivate:[AuthGuard]},
   {path:'perfil/:id',component:PerfilComponent,canActivate:[AuthGuard]},

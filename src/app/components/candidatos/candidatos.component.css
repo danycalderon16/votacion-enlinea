@@ -24,4 +24,6 @@
     flex-grow: 4;
     margin: 1rem;
 }
-
+.titulo h2{
+    margin-bottom: 0;
+}
