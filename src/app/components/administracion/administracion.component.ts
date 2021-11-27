@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-administracion',
@@ -12,7 +13,7 @@ export class AdministracionComponent implements OnInit {
   showPartidos:boolean = true;
   showCandidatos:boolean = true;
 
-  constructor() { }
+  constructor(private auth:AuthService) { }
 
 
   ngOnInit(): void {
@@ -26,4 +27,8 @@ export class AdministracionComponent implements OnInit {
     this.showPartidos = !this.showPartidos;
   }
 
+  logOut(){
+    if(confirm("¿Está seguro de cerrar sesión como administrador?")) 
+      this.auth.logoutAdmin();
+  }
 }

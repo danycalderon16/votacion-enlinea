@@ -25,5 +25,10 @@ export class PerfilComponent implements OnInit {
         this.dataVotante = resp
       })
   }
+  logOut(){
+    if(confirm("¿"+this.dataVotante.nombre+" está seguro de cerrar sesión? ")) {
+      this.auth.logout()
+    }
+  }
 
 }

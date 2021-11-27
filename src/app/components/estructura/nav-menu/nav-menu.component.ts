@@ -36,9 +36,6 @@ export class NavMenuComponent implements OnInit {
   goToVotar(){
     this.router.navigate(['puestos']);
   }
-  logOut(){
-    this.auth.logout()
-  }
   goToResultados(){
     this.router.navigate(['resultados']);
   }

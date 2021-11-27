@@ -1,6 +1,12 @@
 <div class="container">
-    <h2 class="fs-1">Panel de Administración</h2>
-    <hr>
+    <div class="titulo">
+        <h2 class="fs-1">Panel de Administración</h2>
+        <button (click)="logOut()" class="btn my-btn-out">
+            <i class="fas fa-sign-out-alt icon" ></i>
+        </button>
+    </div>
+    <div class="card">
+        
     <div class="cabecera">
         <span class="f2-2 fw-bold">Partidos</span>
         <button (click)="changeViewPartidos()" class="btn btn-primary"><i
@@ -15,7 +21,8 @@
             <app-agregar-partido></app-agregar-partido>
         </div>
     </ng-template>
-    <hr>
+    </div>
+    <div class="card">
     <div class="cabecera">
         <span class="f2-2 fw-bold">Candidatos</span>
         <button (click)="changeViewCandidatos()" class="btn btn-primary"><i
@@ -30,4 +37,5 @@
             <app-agregar-candidato></app-agregar-candidato>
         </div>
     </ng-template>
+    </div>
 </div>

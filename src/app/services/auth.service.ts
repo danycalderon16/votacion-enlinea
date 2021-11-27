@@ -11,61 +11,66 @@ import { LoginService } from './login.service';
 export class AuthService {
 
   constructor(private afauth: AngularFireAuth,
-    private loginService:LoginService,
-    private router:Router) { }
+    private loginService: LoginService,
+    private router: Router) { }
 
-  logout(){
-    this.afauth.signOut().catch(err =>{
+  logout() {
+    this.afauth.signOut().catch(err => {
       console.log("error al salir")
     })
-    .then(res =>{
-      console.log(res);
-      this.router.navigate(['login']);
-      this.loginService.isLogged = false;
-    })
+      .then(res => {
+        console.log(res);
+        this.router.navigate(['login']);
+        this.loginService.isLogged = false;
+      })
   }
 
-  login(email:string, password:string){
+  login(email: string, password: string) {
     this.afauth.signInWithEmailAndPassword(
       email,
       password
     )
-    .catch(err => {
-      Swal.fire({
-        icon: 'error',
-        title: 'Datos invalidos',
-        text: 'Revise bien sus datos',
+      .catch(err => {
+        Swal.fire({
+          icon: 'error',
+          title: 'Datos invalidos',
+          text: 'Revise bien sus datos',
+        })
+        return;
       })
-      return;
-    })
-    .then(res => {
-      console.log(this.loginService.whereToGo)
-      
-      this.redirigir();
-      
-      this.loginService.isLogged = true;
-    })
+      .then(res => {
+        console.log(this.loginService.whereToGo)
+
+        this.redirigir();
+
+        this.loginService.isLogged = true;
+      })
   }
 
-  redirigir(){
-    if(this.loginService.whereToGo==='inicio')
-        this.router.navigate(['perfil',getAuth().currentUser?.uid])
-        if(this.loginService.whereToGo==='perfil')
-          this.router.navigate(['perfil',getAuth().currentUser?.uid])
-      if(this.loginService.whereToGo==='puestos')
-        this.router.navigate(['puestos'])
-      if(this.loginService.whereToGo==='resultados')
-        this.router.navigate(['resultados'])
-      if(this.loginService.whereToGo==='mapa')
-        this.router.navigate(['perfil',getAuth().currentUser?.uid])//cambiar despues
+  redirigir() {
+    if (this.loginService.whereToGo === 'inicio')
+      this.router.navigate(['perfil', getAuth().currentUser?.uid])
+    if (this.loginService.whereToGo === 'perfil')
+      this.router.navigate(['perfil', getAuth().currentUser?.uid])
+    if (this.loginService.whereToGo === 'puestos')
+      this.router.navigate(['puestos'])
+    if (this.loginService.whereToGo === 'resultados')
+      this.router.navigate(['resultados'])
+    if (this.loginService.whereToGo === 'mapa')
+      this.router.navigate(['perfil', getAuth().currentUser?.uid])//cambiar despues
   }
 
-  loginAdmin(){
-    this.loginService.isLogged = true;
+  loginAdmin() {
+    this.loginService.isLoggedAdmin = true;
   }
 
-  getCurrentUser(){
+  logoutAdmin(){
+    this.loginService.isLoggedAdmin = false;
+    this.router.navigate(['login']);
+  }
+
+  getCurrentUser() {
     return getAuth().currentUser?.uid
   }
-  
+
 }

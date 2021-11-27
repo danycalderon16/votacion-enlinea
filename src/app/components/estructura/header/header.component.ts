@@ -23,4 +23,9 @@ export class HeaderComponent implements OnInit {
     console.log(this.authSer.getCurrentUser())
     this.route.navigate(['inicio']);
   }
+  logedM(){
+    console.log(this.loginServ.isLogged);
+    console.log(this.loginServ.whereToGo)
+    console.log(this.authSer.getCurrentUser())
+  }
 }

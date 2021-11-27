@@ -7,6 +7,8 @@ export class LoginService {
 
   public isLogged = false;
 
+  public isLoggedAdmin = false;
+
   public whereToGo:string = "inicio";
   
   constructor() { }

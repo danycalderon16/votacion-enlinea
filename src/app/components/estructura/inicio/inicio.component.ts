@@ -19,7 +19,6 @@ export class InicioComponent implements OnInit {
 
   goLogin(page:string){
     this.login.whereToGo = page
-    console.log(this.login.isLogged)
     if(this.login.isLogged)
       this.auth.redirigir()
     else

@@ -32,6 +32,10 @@
     border-radius: 15px;
     align-items: center;
 }
+.partido:hover{
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    transform: scale(1.01);
+}
 .partido img {
     max-width: 180px;
     align-items: center;

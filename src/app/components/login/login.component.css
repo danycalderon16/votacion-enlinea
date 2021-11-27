@@ -65,15 +65,18 @@
 .login-box div{
     text-align: center;
 }
-
 .login-box a{
     text-decoration: none;
     font-size: 12px;
     line-height: 20px;
     color:darkgray;
-    
 }
-
 .login-box a:hover{
     color: #FFF;
+}
+.btn-login{
+    height: 35px;
+    margin-top: 1rem;
+    display: block;
+    width: 100%;
 }

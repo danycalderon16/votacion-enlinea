@@ -31,7 +31,12 @@ export class ResultadosComponent implements OnInit{
   
   public colores = [
     {
-      backgroundColor: ['rgba(127, 255, 0, 0.5)', 'rgba(100, 149, 237, 0.5)', 'rgba(0, 139, 139, 0.5)','rgba(139, 0, 139, 0.5)','rgba(255, 215, 0, 0.5,0.5)','rgba(173, 216, 230,0.5)'],
+      backgroundColor: ['rgba(127, 255,   0, 0.5)', 
+                        'rgba(100, 149, 237, 0.5)', 
+                        'rgba(0  , 139, 139, 0.5)',
+                        'rgba(139,   0, 139, 0.5)',
+                        'rgba(255, 215,   0, 0.5)',
+                        'rgba(173, 216, 230, 0.5)'],
     },
   ];
 

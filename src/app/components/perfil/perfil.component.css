@@ -1,23 +1,24 @@
+.titulo{
+    justify-content: flex-end;
+}
 .titulo h2{
     margin-bottom: 0;
+    margin-right: auto;
 }
-.tbl-votante{    
-    width: 100%;
-    border-spacing: 15px;
+.tbl-votante {
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 1rem;
 }
-.tbl-votante th,
-.tbl-votante td,
-.tbl-votante tr
-{
-    border: 1px solid black;
-}
-.tbl-votante td {
-    border-radius: 20px;
-}
-.tbl-votante td:hover {
+.tbl-votante{
     box-shadow: 0px 0px 18px 1px rgba(0,0,0,0.27);
     -webkit-box-shadow: 0px 0px 18px 1px rgba(0,0,0,0.27);
     -moz-box-shadow: 0px 0px 18px 1px rgba(0,0,0,0.27);
+}
+.tbl-votante:hover{
+    box-shadow: 0px 0px 18px 1px rgba(0,0,0,0.27);
+    -webkit-box-shadow: 0px 0px 18px 1px rgba(0, 0, 0, 0.308);
+    -moz-box-shadow: 0px 0px 18px 1px rgba(0, 0, 0, 0.39);
 }
 .votante{
     display: flex;

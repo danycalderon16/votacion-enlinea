@@ -1,37 +1,33 @@
 <div class="container">
     <div class="titulo">
-    <h2>Bienvenido Fulatino de Tal</h2>
-        <button routerLink="/inicio" class="btn">
+        <h2>Bienvenido {{dataVotante.nombre}}</h2>
+        <button routerLink="/inicio" class="btn my-btn">
             <i class="fas fa-long-arrow-alt-left .icon"></i>
             Inicio
         </button>
-      </div>
+        <button (click)="logOut()" class="btn my-btn my-btn-out">
+            <i class="fas fa-sign-out-alt icon" ></i>
+        </button>
+    </div>
     <article>
-        <table class="tbl-votante">
-            <caption>TUS DATOS</caption>
-            <tbody>
-                <tr>
-                    <td>
-                        <div class="votante">
-                            <div class="votante-img">
-                                <img class="user" src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
-                                    alt="">
-                            </div>
-                            <div class="votante-datos">
-                                <p>NOMBRE: {{dataVotante.nombre}}</p>
-                                <p>FECHA DE NACIMIENTO: {{dataVotante.fechaNac}}</p>
-                                <p>DOMICILIO: {{dataVotante.domicilio}}</p>
-                                <p>CLAVE DE ELECTOR: {{dataVotante.clave}}</p>
-                                <p>CURP: {{dataVotante.curp}}</p>
-                                <p>ESTADO: {{dataVotante.estado}}</p>
-                                <p>MUNICIPIO: {{dataVotante.municipio}}</p>
-                                <p>SECCIÓN: {{dataVotante.seccion}}</p>
-                                <p>LOCALIDAD: {{dataVotante.localidad}}</p>
-                            </div>
-                        </div>
-                    </td>                       
-                </tr>
-            </tbody>
-        </table>
+        <div class="tbl-votante">
+            <p>TUS DATOS</p>
+            <div class="votante">
+                <div class="votante-img">
+                    <img class="user" src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="">
+                </div>
+                <div class="votante-datos">
+                    <p>NOMBRE: {{dataVotante.nombre}}</p>
+                    <p>FECHA DE NACIMIENTO: {{dataVotante.fechaNac}}</p>
+                    <p>DOMICILIO: {{dataVotante.domicilio}}</p>
+                    <p>CLAVE DE ELECTOR: {{dataVotante.clave}}</p>
+                    <p>CURP: {{dataVotante.curp}}</p>
+                    <p>ESTADO: {{dataVotante.estado}}</p>
+                    <p>MUNICIPIO: {{dataVotante.municipio}}</p>
+                    <p>SECCIÓN: {{dataVotante.seccion}}</p>
+                    <p>LOCALIDAD: {{dataVotante.localidad}}</p>
+                </div>
+            </div>
+        </div>
     </article>
 </div>
