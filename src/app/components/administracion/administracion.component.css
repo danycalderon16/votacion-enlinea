@@ -12,3 +12,15 @@
 .card:last-child{
     margin-top: 1rem;
 }
+.btn-icon{
+    margin: 0 10px;
+}
+img{
+    width: auto;
+    height: 30px;
+    vertical-align: middle;
+    margin-left: 10px;
+}
+td, th{
+    vertical-align: middle;
+}

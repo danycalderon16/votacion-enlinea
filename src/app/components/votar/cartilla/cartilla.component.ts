@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, Inject, OnInit } from '@angular/core';
 import { Candidato } from 'src/app/models/candidato.model';
 import { Router, ActivatedRoute } from '@angular/router';
 import { CandidatosService } from 'src/app/services/candidatos.service';
@@ -7,6 +7,17 @@ import { Votante } from 'src/app/models/votante.model';
 import { PerfilComponent } from '../../perfil/perfil.component';
 import { DataService } from 'src/app/services/data.service';
 import { AuthService } from 'src/app/services/auth.service';
+
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import Swal from 'sweetalert2';
+
+export interface DialogData {
+  curp: string;
+}
+
+/**
+ * @title Dialog Overview
+ */
 
 @Component({
   selector: 'app-cartilla',
@@ -22,13 +33,16 @@ export class CartillaComponent implements OnInit {
 
   votante: Votante = {};
 
+  curp: string = ""
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private candidatoService: CandidatosService,
     private resultados: ResultadoVotosService,
     private data:DataService,
-    private auth:AuthService) {
+    private auth:AuthService,
+    public dialog: MatDialog) {
   }
 
   ngOnInit(): void {
@@ -40,21 +54,62 @@ export class CartillaComponent implements OnInit {
             this.candidatos.push(element);
         });
        });
-      this.data.getUsuario(this.auth.getCurrentUser()).subscribe(res => this.votante = res)
-      
+      this.data.getUsuario(this.auth.getCurrentUser()).subscribe(res => this.votante = res)   
   }
 
   votar(candidato:any) {
-    console.log(this.votante)
-    if (this.puesto === "Gobernador") {
-      this.resultados.votarGobernador(this.votante,candidato)
-    }
-    if (this.puesto === "Presidente") {
-      this.resultados.votarSenador(this.votante,candidato)
-    }
-    if (this.puesto === "Senador") {
-      this.resultados.votarPresidente(this.votante,candidato)
-    }
+    const dialogRef = this.dialog.open(ConfimationDialog, {
+      width: '250px',
+      data: { passwordAdmin: this.curp }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.curp = result;
+      this.chechCurp(result)
+      console.log(result);
+    });
   }
 
+  chechCurp(result: any) {
+    if(result===this.votante.curp){
+      Swal.fire(
+        'Voto registrado',
+        'Recuerde que su voto es secreto',
+        'success'
+      )
+      this.router.navigate(['resultados'])
+    }else{
+      Swal.fire({
+        icon: 'error',
+        title: 'CURP INCORRECTA',
+        text: 'Asegurese de ingresar los datos correctamente',
+      })
+      return;
+    }
+  }
+  
+
 }
+
+
+@Component({
+  selector: 'confimation-modal',
+  templateUrl: 'confimation-modal.component.html',
+})
+export class ConfimationDialog {
+
+  constructor(
+    public dialogRef: MatDialogRef<ConfimationDialog>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData,
+    private host: ElementRef
+  ) { }
+  
+  ngAfterViewInit() {
+    this.host.nativeElement.focus();
+  }
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+}
+

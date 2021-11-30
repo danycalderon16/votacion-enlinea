@@ -22,7 +22,8 @@ const routes: Routes = [
   {path:'casillas',component:CasillasFisicasComponent,canActivate:[AuthGuard]},
   {path:'candidatos/:puesto',component:CandidatosComponent,canActivate:[AuthGuard]},
   {path:'cartilla/:puesto',component:CartillaComponent,canActivate:[AuthGuard]},
-  {path:'admon',component:AdministracionComponent,canActivate:[AdminGuard]},
+  // {path:'admon',component:AdministracionComponent,canActivate:[AdminGuard]},
+  {path:'admon',component:AdministracionComponent},
   {path:'resultados',component:ResultadosComponent,canActivate:[AuthGuard]},
   {path:'**',component:InicioComponent},
 ]

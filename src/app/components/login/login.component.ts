@@ -1,7 +1,8 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { AuthService } from 'src/app/services/auth.service';
+import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
@@ -19,8 +20,8 @@ export interface DialogData {
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  
-  email: string ="";
+
+  email: string = "";
   password: string = "";
 
   passwordAdmin: string = "";
@@ -61,7 +62,7 @@ export class LoginComponent implements OnInit {
   goAdminPage() {
     this.authService.loginAdmin();
     console.log(this.password)
-    if(this.password === "admin"){
+    if (this.password === "admin") {
       this.router.navigate(['admon'])
       return
     }
@@ -77,13 +78,19 @@ export class LoginComponent implements OnInit {
 @Component({
   selector: 'login_modal_admin',
   templateUrl: 'login_modal_admin.component.html',
+  styleUrls: ['./login_modal.component.css']
 })
 export class DialogOverviewExampleDialog {
 
   constructor(
     public dialogRef: MatDialogRef<DialogOverviewExampleDialog>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData,
+    private host: ElementRef
   ) { }
+  
+  ngAfterViewInit() {
+    this.host.nativeElement.focus();
+  }
 
   onNoClick(): void {
     this.dialogRef.close();

@@ -2,40 +2,221 @@
     <div class="titulo">
         <h2 class="fs-1">Panel de Administración</h2>
         <button (click)="logOut()" class="btn my-btn-out">
-            <i class="fas fa-sign-out-alt icon" ></i>
+            <i class="fas fa-sign-out-alt icon"></i>
         </button>
     </div>
     <div class="card">
-        
-    <div class="cabecera">
-        <span class="f2-2 fw-bold">Partidos</span>
-        <button (click)="changeViewPartidos()" class="btn btn-primary"><i
-                [ngClass]="{'far fa-eye': showPartidos === false, 'fa fa-plus' : showPartidos === true }"></i> {{
-            showPartidos ? 'Agregar' : 'Mostrar' }}</button>
-    </div>
-    <div *ngIf="showPartidos">
-        <app-tabla-partidos></app-tabla-partidos>
-    </div>
-    <ng-template [ngIf]="!showPartidos">
-        <div>
-            <app-agregar-partido></app-agregar-partido>
+        <div class="cabecera">
+            <span class="f2-2 fw-bold">Partidos</span>
+            <button (click)="changeViewPartidos()" class="btn btn-primary"><i
+                    [ngClass]="{'far fa-eye': vistaPartidos === false, 'fa fa-plus' : vistaPartidos === true }"></i> {{
+                vistaPartidos ? 'Agregar' : 'Mostrar' }}</button>
         </div>
-    </ng-template>
+        <div *ngIf="vistaPartidos">
+            <div>
+                <p>Lista de partidos politicos</p>
+                <hr>
+                <table class="table mt-3 animated fadeIn faster animated fadeIn faster">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let prt of partidos; let i = index">
+                            <th scope="row">{{i + 1}}</th>
+                            <td>{{prt.nombre}} <img src={{prt.imagen}} alt=""></td>
+                            <td class="celda-accion">
+                                <button type="button" class="btn btn-icon btn-warning" (click)="updatePartido(i)"><i class="fas fa-edit"></i></button>
+                                <button type="button" class="btn btn-icon btn-danger" (click)="eliminarPartido(i)"><i class="far fa-trash-alt"></i></button>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+                <div *ngIf="!cargandoTablaPartidos && partidos.length === 0"
+                    class="alert alert-warning text-center mt-3 animated fadeIn faster">
+                    <h4 class="alert-heading">No hay registros</h4>
+                    <p>
+                        <i class="fa fa-exclamation fa-2x"></i>
+                    </p>
+                </div>
+
+                <div *ngIf="cargandoTablaPartidos" class="alert alert-info text-center mt-3 animated fadeIn faster">
+                    <h4 class="alert-heading">Cargando</h4>
+                    <p>
+                        <i class="fa fa-sync-alt fa-spin fa-2x"></i>
+                    </p>
+                    <p class="mb-0">
+                        Espere por favor
+                    </p>
+                </div>
+
+            </div>
+        </div>
+        <ng-template [ngIf]="!vistaPartidos">
+            <div>
+                <p>Agregar nuevo partido</p>
+                <div class="row animated fadeIn faster">
+                    <div class="col">
+                        <form (ngSubmit)="guardarPartido(f)" #f="ngForm">
+                            <div class="row g-2">
+                                <div class="col-md-6">
+                                    <label class="form-label">Firebase ID</label>
+                                    <input type="text" required class="form-control" placeholder="Firebase ID" name="id"
+                                        disabled="disabled" [(ngModel)]="partido.id">
+                                    <small class="form-text text-muted fs-6 mt-1">Este campo es autogenerado</small>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="name" class="form-label">Nombre</label>
+                                    <input type="text" class="form-control" id="name" name="nombre" required
+                                        [(ngModel)]="partido.nombre">
+                                </div>
+                                <div class="col-md-12">
+                                    <label for="name" class="form-label">Imagen</label>
+                                    <input type="text" class="form-control" id="imimageng" name="imagen" required
+                                        [(ngModel)]="partido.imagen">
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="form-group text-center mb-4">
+                                <button type="submit" class="btn btn-primary w-100">
+                                    <i class="fa fa-save"></i>
+                                    {{saveUpdateP ? 'Guardar' : 'Actualizar' }}
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
     </div>
     <div class="card">
-    <div class="cabecera">
-        <span class="f2-2 fw-bold">Candidatos</span>
-        <button (click)="changeViewCandidatos()" class="btn btn-primary"><i
-                [ngClass]="{'far fa-eye': showCandidatos === false, 'fa fa-plus' : showCandidatos === true }"></i> {{
-            showCandidatos ? 'Agregar' : 'Mostrar' }}</button>
-    </div>
-    <div *ngIf="showCandidatos">
-        <app-tabla-candidatos></app-tabla-candidatos>
-    </div>
-    <ng-template [ngIf]="!showCandidatos">
-        <div>
-            <app-agregar-candidato></app-agregar-candidato>
+        <div class="cabecera">
+            <span class="f2-2 fw-bold">Candidatos</span>
+            <button (click)="changeViewCandidatos()" class="btn btn-primary"><i
+                    [ngClass]="{'far fa-eye': vistaCandidatos === false, 'fa fa-plus' : vistaCandidatos === true }"></i>
+                {{
+                vistaCandidatos ? 'Agregar' : 'Mostrar' }}</button>
         </div>
-    </ng-template>
+        <div *ngIf="vistaCandidatos">
+            <div>
+                <p>Lista de cantidatos</p>
+                <hr>
+
+                <table class="table mt-3 animated fadeIn faster animated fadeIn faster">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Puesto</th>
+                            <th scope="col">Partido</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let cdt of candidatos; let i = index;">
+                            <th scope="row">{{i + 1}}</th>
+                            <td>{{cdt.nombre}}</td>
+                            <td>{{cdt.puesto}}</td>
+                            <td>{{cdt.partido}} <img src={{cdt.imagenPartido}} alt=""></td>
+                            <td class="celda-accion">
+                                <button type="button" class="btn btn-icon btn-warning" (click)="updateCandidato(i)"><i
+                                        class="fas fa-edit"></i></button>
+                                <button type="button" class="btn btn-icon btn-danger" (click)="eliminarCandidato(i)"><i class="far fa-trash-alt"></i></button>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+                <div *ngIf="!cargandoTablaCandidatos && candidatos.length === 0"
+                    class="alert alert-warning text-center mt-3 animated fadeIn faster">
+                    <h4 class="alert-heading">No hay registros</h4>
+                    <p>
+                        <i class="fa fa-exclamation fa-2x"></i>
+                    </p>
+                </div>
+
+                <div *ngIf="cargandoTablaCandidatos" class="alert alert-info text-center mt-3 animated fadeIn faster">
+                    <h4 class="alert-heading">Cargando</h4>
+                    <p>
+                        <i class="fa fa-sync-alt fa-spin fa-2x"></i>
+                    </p>
+                    <p class="mb-0">
+                        Espere por favor
+                    </p>
+                </div>
+
+            </div>
+        </div>
+        <ng-template [ngIf]="!vistaCandidatos">
+            <div>
+                <p>Agregar nuevo candidato</p>
+                <div class="row animated fadeIn faster">
+                    <div class="col">
+                        <form (ngSubmit)="guardarCandidato(f)" #f="ngForm">
+                            <div class="form-group">
+                                <label>Firebase ID</label>
+                                <input type="text" required class="form-control" placeholder="Firebase ID"
+                                    [(ngModel)]="candidato.id" name="id" disabled="disabled">
+                                <small class="form-text text-muted">Este campo es autogenerado</small>
+                            </div>
+                            <form class="row g-3">
+                                <div class="col-md-6">
+                                    <label for="names" class="form-label">Nombres</label>
+                                    <input type="text" class="form-control" id="names" name="nombre"
+                                        [(ngModel)]="candidato.nombre" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="lasname" class="form-label">Apellido</label>
+                                    <input type="text" class="form-control" id="lastname"
+                                        [(ngModel)]="candidato.apellido" name="apellido" required>
+                                </div>
+                                <div class="col-md-9">
+                                    <label for="education" class="form-label">Educación</label>
+                                    <input type="text" class="form-control" id="education"
+                                        [(ngModel)]="candidato.educacion" name="educacion" required>
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="age" class="form-label">Edad</label>
+                                    <input type="number" class="form-control" id="age" [(ngModel)]="candidato.edad"
+                                        name="edad" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="inputState" class="form-label">Partido</label>
+                                    <select id="inputState" class="form-select" [(ngModel)]="candidato.partido"
+                                        name="partido" required>
+                                        <option selected>Eliga un partido...</option>
+                                        <option *ngFor="let prt of partidos">{{prt.nombre}}</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="inputState" class="form-label">Puesto</label>
+                                    <select id="inputState" class="form-select" [(ngModel)]="candidato.puesto"
+                                        name="puesto" required>
+                                        <option selected>Eliga un puesto...</option>
+                                        <option *ngFor="let puesto of puestos">{{puesto.nombre}}</option>
+                                    </select>
+                                </div>
+                            </form>
+                            <div class="mb-3">
+                                <label for="propuestas" class="form-label mt-2">Propuestas</label>
+                                <textarea class="form-control" id="propuestas" rows="3"
+                                    [(ngModel)]="candidato.propuestas" required name="propuestas"></textarea>
+                            </div>
+                            <hr>
+                            <div class="form-group text-center mb-4">
+                                <button type="submit" class="btn btn-primary w-100">
+                                    <i class="fa fa-save"></i>
+                                    {{saveUpdateC ? 'Guardar' : 'Actualizar' }}
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
     </div>
 </div>

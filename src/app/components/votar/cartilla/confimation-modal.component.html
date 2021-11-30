@@ -1,0 +1,16 @@
+<div mat-dialog-content>
+    <p>Ingrese su CUPR para confirmar su voto</p>
+    <mat-form-field  appearance="fill">
+        <mat-label>CURP</mat-label>
+        <input type="password"
+        matInput [(ngModel)]="data.curp" 
+        name="data.passwordAdmin" 
+        placeholder="Contraseña"
+        autofocus>
+      </mat-form-field>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-raised-button (click)="onNoClick()">Cancelar</button>
+    <button mat-raised-button [mat-dialog-close]="data.curp" cdkFocusInitial>Ok</button>
+  </div>
+  

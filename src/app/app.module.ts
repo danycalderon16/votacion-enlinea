@@ -32,11 +32,13 @@ import { provideAuth, getAuth } from '@angular/fire/auth';
 
 import {MaterialExampleModule} from '../material.module';
 import {DialogOverviewExampleDialog} from './components/login/login.component';
+import {ConfimationDialog} from './components/votar/cartilla/cartilla.component'
 import { InicioComponent } from './components/estructura/inicio/inicio.component';
 
 @NgModule({
   declarations: [
     DialogOverviewExampleDialog,
+    ConfimationDialog,
     AppComponent,
     HeaderComponent,
     LoginComponent,

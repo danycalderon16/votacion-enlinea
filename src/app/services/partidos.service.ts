@@ -12,6 +12,10 @@ export class PartidosService {
 
   constructor(private http:HttpClient) { }
 
+  eliminarPartido(partido:Partido){
+    return this.http.delete( `${this.url}/partidos/${partido.id}.json`);
+  }
+
   crearPartido(partido:Partido){
     return this.http.post( `${this.url}/partidos.json`,partido)
       .pipe(

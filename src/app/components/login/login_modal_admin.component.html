@@ -1,15 +1,14 @@
-<div mat-dialog-content>
-  <p>Ingrese la contraseña de administrador</p>
-  <!-- <mat-form-field> -->
-    <!-- <input matInput type="password" placeholder="Password" "> -->
-    <!-- <input matInput type="password" class="form-control" [(ngModel)]="data.passwordAdmin" placeholder="Contraseña"> -->
-    <mat-form-field appearance="fill">
-      <mat-label>Favorite Animal</mat-label>
-      <input type="password" matInput [(ngModel)]="data.passwordAdmin" name="data.passwordAdmin" placeholder="Contraseña">
+<form #f="ngForm">
+  <div mat-dialog-content>
+    <p>Ingrese la contraseña de administrador</p>
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Contraseña</mat-label>
+      <input type="password" matInput [(ngModel)]="data.passwordAdmin" name="data.passwordAdmin"
+        placeholder="Contraseña" autofocus>
     </mat-form-field>
-  <!-- </mat-form-field> -->
-</div>
-<div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">Cancelar</button>
-  <button mat-button [mat-dialog-close]="data.passwordAdmin" cdkFocusInitial>Ok</button>
-</div>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-raised-button (click)="onNoClick()">Cancelar</button>
+    <button mat-raised-button [mat-dialog-close]="data.passwordAdmin" cdkFocusInitial>Ok</button>
+  </div>
+</form>

@@ -12,6 +12,10 @@ export class CandidatosService {
 
   constructor( private http:HttpClient) { }
 
+  elimicarCandidato(candidato:Candidato){
+    return this.http.delete( `${this.url}/candidatos/${candidato.id}.json`)
+  }
+
   crearCandidato(candidato:Candidato){
     return this.http.post( `${this.url}/candidatos.json`,candidato)
       .pipe(
