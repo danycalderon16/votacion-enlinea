@@ -114,5 +114,8 @@
       }
     }
   },
-  "defaultProject": "votacion-enlinea"
+  "defaultProject": "votacion-enlinea",
+  "cli": {
+    "analytics": false
+  }
 }

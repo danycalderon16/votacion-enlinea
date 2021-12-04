@@ -1,7 +1,7 @@
 <div class="container-login">
     <div class="login-box">
-        <img class="avatar" src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="user">
-        <h1 class="title1">Iniciar Sesión</h1>
+        <img class="avatar" src="https://cdn-icons-png.flaticon.com/512/848/848006.png" alt="user">
+        <h1 class="title1"><b>Iniciar Sesión</b></h1>
         <form>
             <!--CURP-->
             <label for="email">Email</label>
@@ -10,14 +10,9 @@
             <!--PASSWORD-->
             <label for="password">Contraseña</label>
             <input name="password" type="password" placeholder="Ingrese su clave de acceso" [(ngModel)]="password">
-
+            <br />
+            <br />
             <button class="btn-login"  mat-raised-button (click)="login()">Ingresar</button>
-            <!-- <div>
-                <a hxref="#">¿Olvidaste tu contraseña?</a><br>
-            </div>
-            <div>
-                <a href="#">Crear cuenta</a>
-            </div> -->
             <button class="btn-login" mat-raised-button (click)="openDialog()">Administración</button>
         </form>
     </div>

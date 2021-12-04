@@ -2,11 +2,27 @@
     min-height: 70vh;
     display: flex;
     justify-content: space-evenly;
+    flex-wrap: wrap;
 }
-.inicio p{
-}
+
 .card{
+    width: 20vw;
+    height: 20vw;
     cursor: pointer;
     min-height: 300px;
+    min-width: 300px;
     text-align: center;
+    margin: 20px 20px 0 0;
+}
+
+.card img{
+    width: 18vw;
+    height: 18vw;
+    min-height: 290px;
+    min-width: 290px;
+    margin: auto;
+}
+
+.card:hover{
+    box-shadow: 5px 5px  rgba(0, 0, 0, 0.2);
 }
