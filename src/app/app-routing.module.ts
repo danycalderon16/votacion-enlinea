@@ -12,6 +12,7 @@ import { ResultadosComponent } from './components/votar/resultados/resultados.co
 import {AuthGuard} from './guard/auth.guard'
 import { InicioComponent } from './components/estructura/inicio/inicio.component';
 import { AdminGuard } from './guard/admin.guard';
+import { MapasComponent } from './components/mapas/mapas.component';
 
 const routes: Routes = [
   {path:'',component:InicioComponent,},
@@ -22,8 +23,10 @@ const routes: Routes = [
   {path:'casillas',component:CasillasFisicasComponent,canActivate:[AuthGuard]},
   {path:'candidatos/:puesto',component:CandidatosComponent,canActivate:[AuthGuard]},
   {path:'cartilla/:puesto',component:CartillaComponent,canActivate:[AuthGuard]},
-  // {path:'admon',component:AdministracionComponent,canActivate:[AdminGuard]},
-  {path:'admon',component:AdministracionComponent},
+  {path:'mapas',component:MapasComponent},
+  {path:'mapas/:id',component:MapasComponent,canActivate:[AuthGuard]},
+  {path:'admon',component:AdministracionComponent,canActivate:[AdminGuard]},
+  //{path:'admon',component:AdministracionComponent},
   {path:'resultados',component:ResultadosComponent,canActivate:[AuthGuard]},
   {path:'**',component:InicioComponent},
 ]

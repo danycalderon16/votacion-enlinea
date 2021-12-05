@@ -56,8 +56,8 @@ export class AuthService {
       this.router.navigate(['puestos'])
     if (this.loginService.whereToGo === 'resultados')
       this.router.navigate(['resultados'])
-    if (this.loginService.whereToGo === 'mapa')
-      this.router.navigate(['perfil', getAuth().currentUser?.uid])//cambiar despues
+    if (this.loginService.whereToGo === 'mapas')
+      this.router.navigate(['mapas', getAuth().currentUser?.uid])//cambiar despues
   }
 
   loginAdmin() {
