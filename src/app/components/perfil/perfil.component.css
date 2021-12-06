@@ -1,5 +1,7 @@
 .titulo{
     justify-content: flex-end;
+    width: 70vw;
+    margin: auto;
 }
 .titulo h2{
     margin-bottom: 0;
