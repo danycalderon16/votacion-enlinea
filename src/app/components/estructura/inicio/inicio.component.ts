@@ -21,8 +21,13 @@ export class InicioComponent implements OnInit {
     this.login.whereToGo = page
     if(this.login.isLogged)
       this.auth.redirigir()
-    else
-      this.router.navigate(['login'])
+    else{
+      if (page == 'mapas') {
+        console.log("mapas")
+        this.router.navigate(['mapas'])    
+      }
+      this.router.navigate(['login'])      
+    }
   }
 
 }

@@ -13,6 +13,7 @@
     min-width: 300px;
     text-align: center;
     margin: 20px 20px 0 0;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.1);
 }
 
 .card img{
@@ -24,5 +25,7 @@
 }
 
 .card:hover{
-    box-shadow: 5px 5px  rgba(0, 0, 0, 0.2);
+    /* box-shadow: 5px 5px  rgba(0, 0, 0, 0.2); */
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    transform: scale(1.01);
 }

@@ -34,6 +34,7 @@ import {MaterialExampleModule} from '../material.module';
 import {DialogOverviewExampleDialog} from './components/login/login.component';
 import {ConfimationDialog} from './components/votar/cartilla/cartilla.component'
 import { InicioComponent } from './components/estructura/inicio/inicio.component';
+import { MapasComponent } from './components/mapas/mapas.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { InicioComponent } from './components/estructura/inicio/inicio.component
     TablaPartidosComponent,
     VentanaVotarComponent,
     ResultadosComponent,
-    InicioComponent
+    InicioComponent,
+    MapasComponent
   ],
   imports: [
     BrowserModule, 
