@@ -11,21 +11,26 @@
     </div>
     <article>
         <div class="tbl-votante">
-            <p>TUS DATOS</p>
+            <p style="text-align: center;"><b>DATOS</b></p>
+            <hr />
             <div class="votante">
                 <div class="votante-img">
-                    <img class="user" src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="">
+                    <img class="user" src="https://cdn-icons-png.flaticon.com/512/848/848006.png" alt="">
                 </div>
                 <div class="votante-datos">
-                    <p>NOMBRE: {{dataVotante.nombre}}</p>
-                    <p>FECHA DE NACIMIENTO: {{dataVotante.fechaNac}}</p>
-                    <p>DOMICILIO: {{dataVotante.domicilio}}</p>
-                    <p>CLAVE DE ELECTOR: {{dataVotante.clave}}</p>
-                    <p>CURP: {{dataVotante.curp}}</p>
-                    <p>ESTADO: {{dataVotante.estado}}</p>
-                    <p>MUNICIPIO: {{dataVotante.municipio}}</p>
-                    <p>SECCIÓN: {{dataVotante.seccion}}</p>
-                    <p>LOCALIDAD: {{dataVotante.localidad}}</p>
+                    <div style="display: flex; justify-content: space-between;">
+                        <p><b>NOMBRE:</b> {{dataVotante.nombre}}</p>
+                        <p><b>FECHA DE NACIMIENTO:</b> {{dataVotante.fechaNac}}</p>
+                    </div>
+                    <p><b>DOMICILIO:</b> {{dataVotante.domicilio}}</p>
+                    <p><b>DE ELECTOR:</b> {{dataVotante.clave}}</p>
+                    <p><b>CURP:</b> {{dataVotante.curp}}</p>
+                    <div style="display: flex; justify-content: space-between;">
+                        <p><b>ESTADO:</b> {{dataVotante.estado}}</p>
+                        <p><b>MUNICIPIO:</b> {{dataVotante.municipio}}</p>
+                        <p><b>SECCIÓN:</b> {{dataVotante.seccion}}</p>
+                        <p><b>LOCALIDAD:</b> {{dataVotante.localidad}}</p>
+                    </div>
                 </div>
             </div>
         </div>
