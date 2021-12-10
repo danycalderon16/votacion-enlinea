@@ -21,8 +21,8 @@ export interface DialogData {
 })
 export class LoginComponent implements OnInit {
 
-  email: string = "diegolainez@ittepic.com";
-  password: string = "diegolainez";
+  email: string = "";
+  password: string = "";
 
   passwordAdmin: string = "";
 

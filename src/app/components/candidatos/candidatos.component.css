@@ -23,10 +23,12 @@
     -moz-box-shadow: 0px 0px 18px 1px rgba(0,0,0,0.27);
 }
 .partido img {
-    max-width: 200px;
+    max-width: 180px;
 }
 .partido .partido-img{
     flex-grow: 1;
+    text-align: center;
+    margin: auto 0;
 }
 .partido .partido-datos{
     flex-grow: 4;

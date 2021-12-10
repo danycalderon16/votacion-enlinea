@@ -8,14 +8,16 @@
     </div>
     <div class="partido" *ngFor="let candidato of candidatos">
         <div class="partido-img">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a2/Gray-Candidatura_independiente.svg" alt="">
+            <img src={{candidato.imagenPartido}} alt={{candidato.partido}}>
         </div>
         <div class="partido-datos">
-            <p>{{candidato.nombre}}</p>
-            <p>{{candidato.propuestas}}</p>
+            <p>{{candidato.nombre}} {{candidato.apellido}}</p>
+            <p>{{candidato.edad}} años</p>
             <p>{{candidato.educacion}}</p>
-            <p>{{candidato.puesto}}</p>
-            <p><img src={{candidato.imagenPartido}} alt=""> </p>
+            <h3>Propuestas:</h3>
+            <ul>
+                <li><i>{{candidato.propuestas}}</i></li>
+            </ul>
         </div>
     </div>
 </div>
