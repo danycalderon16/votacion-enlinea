@@ -1,27 +1,30 @@
-# VotacionEnlinea
+# Votación en linea 
+¡¡¡ Link en firebase hosting !!! 
+- https://votacion-en-linea.web.app/
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.4.
+¡¡¡ Link en GithubPages !!!
+- https://danycalderon16.github.io/VotacionElectronica/
+## Integrantes
 
-## Development server
+- 18401080 Antonio de Jesús Alvarado Martínez
+- 18401090 Daniel Alejandro Calderon Virgen
+- 18401095 Luis Sergio Carrillo Sánchez
+- 18401166 Jonathan Isai Ocegueda Ortiz
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Descripción
+Esta aplicación Web será una mejora al sistema de votación personal y directa que se emplea en Nayarit, la cual nos posicionará a la vanguardia en temas de tecnología. Además de poder solucionar problemas que se presentan en días de elecciones tales como el tiempo que se tarda en ir a votar, boletas insuficientes o en caso contrario boletas sobrantes que representan un gasto para el IEEN, y los posibles casos de corrupción que lamentablemente pueden presentarse. 
+## Objetivo
+Desarrollar una aplicación Web a forma de propuesta, enfocada hacía la realización segura y eficaz de las elecciones para los nayaritas que viven dentro y fuera del territorio del estado. 
+## Funcionalidades
+- Votar
+    - Contar los votos con resultados en tiempo real
+    - Identificar si usuario ya votó
+    - Tener un espacio para que los usuarios vean los candidatos que les corresponden con sus propuestas
+- Ingresar a la aplicación
+    - Tener un acceso personal seguro
+    - Mostrar los datos del usuario que va a votar
+- Tener mayor precision y rapidez en el conteo de votos
+- Mapa con casillas para ir a votar personalmente.
+- Panel de administración
+    - Agregar partidos
+    - Agregar candidatos
