@@ -54,3 +54,26 @@
     font-size: 1.6rem;
     border-radius: 6px;
 }
+@media (max-width: 990px) {
+    .puestos{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        row-gap: 1rem;
+    }
+    .puesto:last-child{
+        grid-area: 2 / 1 / 3 / 3;
+        justify-self: center;
+    }
+}
+@media (max-width: 730px) {
+    .puestos{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        row-gap: 1rem;
+    }
+    .puesto{
+        justify-self: center;
+    }
+}
