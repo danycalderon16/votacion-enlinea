@@ -2,6 +2,9 @@
 ¡¡¡ Link en firebase hosting !!! 
 - https://votacion-en-linea.web.app/
 
+¡¡¡ Link de proyecto en Angular !!!
+- https://github.com/danycalderon16/votacion-enlinea
+
 ¡¡¡ Link en GithubPages !!!
 - https://danycalderon16.github.io/VotacionElectronica/
 ## Integrantes
